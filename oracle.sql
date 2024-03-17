@@ -27,3 +27,27 @@ SELECT * FROM book WHERE publisher IN ( '굿스포츠' , '대한미디어');
 
 출판사가 굿스포츠 혹은 대한미디어가 아닌 도서를 검색하세요.
 SELECT * FROM book WHERE publisher NOT IN ('굿스포츠','대한미디어');
+
+축구의 역사를 출간한 출판사를 검색하시오.
+SELECT publisher FROM book WHERE bookname = '축구의 역사';
+
+도서 이름에 축구가 포함된 출판사를 검색하시오
+SELECT publisher FROM book WHERE bookname LIKE('%축구%');
+
+도서 이름의 왼쪽 두번쨰에 위치에 구라는 문자열을 갖는 도서를 검색하세요.
+SELECT * FROM book WHERE bookname LIKE('_구%');
+
+축구에 관한 도서중 가격이 20000원 이상인 도서를 검색하세요.
+SELECT * FROM book WHERE price >= 20000 AND bookname LIKE ('%축구%');
+
+출판사가 '굿스포츠' 혹은 '대한미디어'인 도서를 검색하세요.
+SELECT * FROM book WHERE publisher = '굿스포츠' OR publisher = '대한미디어';
+
+도서를 이름순으로 검색하세요.
+SELECT * FROM book ORDER BY bookname;
+
+도서를 가격순으로 검색하고, 가격이 같으면 이름순으로 검색하세요.
+SELECT * FROM book ORDER BY price, bookname;
+
+도서를 가격의 내림차순으로 검색하시오. 만약 가격이 같아면 출판사의 오름차순으로 출력하세요.
+SELECT * FROM book ORDER BY price DESC , publisher ASC;
